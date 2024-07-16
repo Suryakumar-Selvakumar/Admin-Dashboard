@@ -88,13 +88,12 @@
 
 .header {
   grid-area: 1 / 2 / 2 / 3;
-  height: 100vh;
-  background-color: #CAF0F8;
+  background-color: white;
   color: black;
   display: grid;
-  grid-template-columns: minmax(300px, 1fr);
-  grid-template-rows: 1fr 4fr 2fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
 }
 
 .footer {
