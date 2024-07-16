@@ -9,30 +9,37 @@
 .container {
   display: grid;
   height: 100%;
-  width: 100%;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 4fr;
+  width: 100vw;
+  grid-template-columns: min-content 4fr;
+  grid-template-rows: min-content 4fr;
 }
 
 .sidebar {
-  height: 100vh;
+  min-height: 100vh;
   grid-area: 1 / 1 / 3 / 2;
   background-color: #00b4d8;
   color: white;
   display: grid;
-  grid-template-columns: minmax(300px, 1fr);
+  grid-template-columns: 1fr 0.01fr;
   grid-template-rows: 1fr 4fr 2fr;
-  gap: 3rem;
+  row-gap: 10vw;
+  column-gap: 2rem;
 }
 
 .dashboard {
   padding-left: 1rem;
   padding-top: 1rem;
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: 1rem;
+  grid-column: 1 / 2;
+}
+
+.dashboard > div {
   font-weight: 600;
-  font-size: 2rem;
+  font-size: clamp(2rem, 3vw + 0.8rem, 3rem);
+  position: relative;
+  top: 10px;
 }
 
 .dashboard:hover {
@@ -41,16 +48,17 @@
 
 .dashboard-icon {
   fill: white;
-  width: 50px;
-  height: 50px;
+  width: clamp(3rem, 4.5vw + 1.5rem, 5rem);
+  height: clamp(3rem, 4.5vw + 1.5rem, 5rem);
 }
 
 .nav-btns-one {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: 1fr;
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
   font-weight: 600;
+  grid-column: 1 / 3;
 }
 
 .nav-btn {
@@ -59,12 +67,12 @@
   padding-bottom: 1rem;
   display: flex;
   gap: 1rem;
-  align-items: end;
+  align-items: center;
 }
 
 .nav-btn > p {
   position: relative;
-  top: 6px;
+  top: 7px;
 }
 
 .nav-btn:hover {
@@ -74,16 +82,17 @@
 
 .nav-icons {
   fill: white;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
 }
 
 .nav-btns-two {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: 1fr;
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
   font-weight: 600;
+  grid-column: 1 / 3;
 }
 
 .header {
@@ -93,9 +102,230 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  box-shadow: 3px 5px 10px rgba(111, 105, 105, 0.3);
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-row > div {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.first-row > div > input {
+  position: relative;
+  left: -1.25rem;
+  width: clamp(28.75rem, -21.882rem + 63.3803vw, 46.875rem);
+  height: 45px;
+  border: none;
+  border-radius: 30px;
+  background-color: #caf0f8;
+  position: relative;
+  top: -4px;
+  font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
+  padding-left: 1rem;
+}
+
+.first-row > div > input:focus {
+  border: none;
+  outline: none;
+  box-shadow: 3px 3px 10px rgba(111, 105, 105, 0.3);
+}
+
+.first-row > div > p {
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+  font-weight: 600;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+}
+
+.first-row > div > img {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.second-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-row > div:first-child {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "image para" "image name";
+  column-gap: 1rem;
+}
+
+.second-row > div > img {
+  grid-area: image;
+}
+
+.second-row > div > p {
+  grid-area: para;
+  font-size: clamp(0.8rem, 0.5vw + 1rem, 1.25rem);
+  font-weight: 600;
+  align-self: center;
+}
+
+.second-row > div > div {
+  grid-area: name;
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.second-row > div > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.header-icons {
+  width: 40px;
+  height: 40px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.header-icons:hover {
+  border-radius: 100%;
+  background-color: rgba(111, 105, 105, 0.3);
+}
+
+.second-row > div:nth-child(2) {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.second-row > div > button {
+  width: 125px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  color: white;
+  background-color: #00b4d8;
+  padding-top: 0.5rem;
+  font-size: clamp(1rem, 2vw + 1rem, 1.25rem);
+  font-weight: 600;
+}
+
+.main-content {
+  grid-area: 2 / 2 / 3 / 3;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "blogs notifications"
+    "blogs discover";
+  padding-top: 2rem;
+}
+
+.main-content > p {
+  grid-area: para-header;
+}
+
+.blogs-container {
+  grid-area: blogs;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "para-header" "blogs-list";
+  padding-left: 1rem;
+}
+
+.blogs {
+  grid-area: blogs-list;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-auto-rows: 400px;
   gap: 1rem;
 }
 
-.footer {
-  grid-area: 2 / 2 / 3 / 3;
+.notifications {
+  grid-area: notifications;
+}
+
+.discover {
+  grid-area: discover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 9.5rem;
+  cursor: pointer;
+}
+
+.one {
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7)),
+    url(static/workout.jpg);
+  background-size: 100% 100%;
+}
+
+.two {
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7)),
+    url(static/books.jpg);
+  background-size: 100% 100%;
+}
+
+.three {
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7)),
+    url(static/ronaldo.jpg);
+  background-size: 100% 100%;
+}
+
+.four {
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7)),
+    url(static/dog.jpeg);
+  background-size: 100% 100%;
+}
+
+.five {
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7)),
+    url(static/bali.jpg);
+  background-size: 100% 100%;
+}
+
+.six {
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.7)),
+    url(static/movies.jpg);
+  background-size: 100% 100%;
+}
+
+.card > div {
+  font-weight: 600;
+  font-size: clamp(2rem, 3vw + 0.8rem, 3rem);
+  text-align: center;
+}
+
+.card-icons {
+  fill: white;
+  width: 40px;
+  height: 40px;
+}
+
+.card-icons-container {
+  justify-self: flex-end;
+  align-self: flex-end;
+  display: flex;
+  align-items: end;
+  gap: 1rem;
 }
