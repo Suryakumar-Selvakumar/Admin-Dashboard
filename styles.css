@@ -221,6 +221,11 @@
   font-weight: 600;
 }
 
+.second-row > div > button:hover {
+  background-color: #0077b6;
+  cursor: pointer;
+}
+
 .main-content {
   grid-area: 2 / 2 / 3 / 3;
   display: grid;
