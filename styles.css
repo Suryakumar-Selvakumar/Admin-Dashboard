@@ -256,14 +256,6 @@
   gap: 1rem;
 }
 
-.notifications {
-  grid-area: notifications;
-}
-
-.discover {
-  grid-area: discover;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -346,4 +338,12 @@
   gap: 0.5rem;
   position: relative;
   left: 13px;
+}
+
+.notifications {
+  grid-area: notifications;
+}
+
+.discover {
+  grid-area: discover;
 }
