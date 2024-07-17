@@ -232,10 +232,12 @@
     "blogs discover";
   padding-top: 2rem;
   background-color: #e9f0f8;
+  gap: 1rem;
 }
 
 .blogs-container {
   grid-area: blogs;
+  display: grid;
   grid-template-rows: min-content 1fr;
   grid-template-areas: "para-header" "blogs-list";
   padding-left: 1rem;
@@ -342,8 +344,65 @@
 
 .notifications {
   grid-area: notifications;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "para-notis" "notis";
+}
+
+.notifications > p {
+  grid-area: para-notis;
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.notis {
+  grid-area: notis;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.profile-pics {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.notis > div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .discover {
   grid-area: discover;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "para-discover" "discover";
+}
+
+.discover > p {
+  grid-area: para-discover;
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.discover-blogs {
+  grid-area: discover;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.blog-pics {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
 }
